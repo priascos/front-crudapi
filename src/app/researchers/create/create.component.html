@@ -1,0 +1,92 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>Creación</h4>
+      <a href="#" routerLink="/researchers/index" class="btn btn-primary">Volver</a>
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+
+        
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="title">ORCID:</label>
+              <input
+                formControlName="orcid"
+                id="orcid"
+                type="text"
+                class="form-control">
+              <div *ngIf="f['orcid'].touched && f['orcid'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['orcid'].errors['required']">*Name is required.</div>
+                  <div *ngIf="f['orcid'].errors['pattern']">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+            <label for="title">Nombres:</label>
+            <input
+                formControlName="givenName"
+                id="givenName"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['givenName'].touched && f['givenName'].invalid" class="alert alert-danger">
+                <div *ngIf="f['givenName'].errors['required']">*Nombres requeridos.</div>
+                <div *ngIf="f['givenName'].errors['pattern']">*Los nombres solo tienen letras.</div>
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="title">Apellidos:</label>
+                <input
+                formControlName="familyName"
+                id="familyName"
+                type="text"
+                class="form-control">
+                <div *ngIf="f['familyName'].touched && f['familyName'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['familyName'].errors['required']">*Apellidos requeridos.</div>
+                    <div *ngIf="f['familyName'].errors['pattern']">*Los apellidos solo tienen letras.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="title">Keyword:</label>
+                <input
+                formControlName="keywords"
+                id="keywords"
+                type="text"
+                class="form-control">
+                <div *ngIf="f['keywords'].touched && f['keywords'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['keywords'].errors['required']">*Keyword requerido.</div>
+                </div>
+            </div>
+        </div>
+  
+        <div class="form-group row">
+            <div class="col-md-6 ">
+            <label for="email">Email:</label>
+            <input
+                formControlName="email"
+                id="email"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                <div *ngIf="f['email'].errors['required']">*Email es requerido.</div>
+                <div *ngIf="f['email'].errors['email']">*Debe ingresar un email valido.</div>
+            </div>
+            </div>
+        </div>
+  
+          
+  
+          <button style="margin: 1%" class="btn btn-primary" type="submit" [disabled]="!form.valid" >Submit</button>
+      </form>
+  </div>
+  
